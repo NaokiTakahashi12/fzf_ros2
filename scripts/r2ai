@@ -1,0 +1,2 @@
+#!/bin/bash
+ros2 action info `ros2 action list | fzf` $@

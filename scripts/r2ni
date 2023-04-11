@@ -1,0 +1,2 @@
+#!/bin/bash
+ros2 node info `ros2 node list | fzf` $@
