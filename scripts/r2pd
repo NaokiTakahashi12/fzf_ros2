@@ -1,2 +1,2 @@
 #!/bin/bash
-ros2 param dump `ros2 node list | fzf` $@
+ros2 param dump `ros2 node list | fzf --height 30% --preview="ros2 param dump {-1}"` $@
