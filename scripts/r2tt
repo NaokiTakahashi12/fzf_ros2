@@ -1,2 +1,0 @@
-#!/bin/bash
-ros2 topic type `ros2 topic list | fzf` $@
