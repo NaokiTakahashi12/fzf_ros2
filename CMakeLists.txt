@@ -7,24 +7,19 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+
+ament_environment_hooks("${CMAKE_CURRENT_SOURCE_DIR}/hooks/fzf_functions.dsv.in")
 
 install(
   PROGRAMS
-    scripts/r2ai
-    scripts/r2is
-    scripts/r2ni
-    scripts/r2pd
-    scripts/r2st
-    scripts/r2tb
-    scripts/r2te
-    scripts/r2th
-    scripts/r2ti
-    scripts/r2tt
+    functions/fzf_with_ros2_action_functions.bash
+    functions/fzf_with_ros2_interface_functions.bash
+    functions/fzf_with_ros2_node_functions.bash
+    functions/fzf_with_ros2_param_functions.bash
+    functions/fzf_with_ros2_service_functions.bash
+    functions/fzf_with_ros2_topic_functions.bash
   DESTINATION
-    "bin"
+    "share/${PROJECT_NAME}/environment"
 )
 
 if(BUILD_TESTING)

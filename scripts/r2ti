@@ -1,2 +1,0 @@
-#!/bin/bash
-ros2 topic info `ros2 topic list | fzf --height 30% --preview="ros2 topic info -v {-1}"` $@
