@@ -18,6 +18,7 @@ install(
     functions/fzf_with_ros2_param_functions.bash
     functions/fzf_with_ros2_service_functions.bash
     functions/fzf_with_ros2_topic_functions.bash
+    functions/fzf_with_ros2_other_functions.bash
   DESTINATION
     "share/${PROJECT_NAME}/environment"
 )
