@@ -23,5 +23,10 @@
 # SOFTWARE.
 
 function r2st () {
-    ros2 service type `ros2 service list | fzf --height 30% --preview="ros2 service type {-1}"` $@
+    service_name=`ros2 service list | fzf --height 30% --preview="ros2 service type {-1}"`
+    if [ -z "$service_name" ]
+    then
+        return 1
+    fi
+    ros2 service type $service_name $@
 }
