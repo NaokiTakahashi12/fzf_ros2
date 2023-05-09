@@ -23,17 +23,42 @@
 # SOFTWARE.
 
 function r2tb () {
-    ros2 topic bw `ros2 topic list | fzf --height 30% --preview="ros2 topic info -v {-1}"` $@
+    topic_name=`ros2 topic list | fzf --height 30% --preview="ros2 topic info -v {-1}"`
+    if [ -z "$topic_name" ]
+    then
+        return 1
+    fi
+    ros2 topic bw $topic_name $@
 }
 function r2te () {
-    ros2 topic echo `ros2 topic list | fzf --height 30% --preview="ros2 topic info -v {-1}"` $@
+    topic_name=`ros2 topic list | fzf --height 30% --preview="ros2 topic info -v {-1}"`
+    if [ -z "$topic_name" ]
+    then
+        return 1
+    fi
+    ros2 topic echo $topic_name $@
 }
 function r2th () {
-    ros2 topic hz `ros2 topic list | fzf --height 30% --preview="ros2 topic info -v {-1}"` $@
+    topic_name=`ros2 topic list | fzf --height 30% --preview="ros2 topic info -v {-1}"`
+    if [ -z "$topic_name" ]
+    then
+        return 1
+    fi
+    ros2 topic hz $topic_name $@
 }
 function r2ti () {
-    ros2 topic info `ros2 topic list | fzf --height 30% --preview="ros2 topic info -v {-1}"` $@
+    topic_name=`ros2 topic list | fzf --height 30% --preview="ros2 topic info -v {-1}"`
+    if [ -z "$topic_name" ]
+    then
+        return 1
+    fi
+    ros2 topic info $topic_name $@
 }
 function r2tt () {
-    ros2 topic type `ros2 topic list | fzf --height 30% --preview="ros2 topic info -v {-1}"` $@
+    topic_name=`ros2 topic list | fzf --height 30% --preview="ros2 topic info -v {-1}"`
+    if [ -z "$topic_name" ]
+    then
+        return 1
+    fi
+    ros2 topic type $topic_name $@
 }

@@ -23,5 +23,10 @@
 # SOFTWARE.
 
 function r2is () {
-    ros2 interface show `ros2 interface list | fzf --height 30% --preview="ros2 interface show {-1}"` $@
+    interface_name=`ros2 interface list | fzf --height 30% --preview="ros2 interface show {-1}"`
+    if [ -z "$interface_name" ]
+    then
+        return 1
+    fi
+    ros2 interface show $interface_name $@
 }

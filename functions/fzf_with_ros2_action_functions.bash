@@ -23,5 +23,10 @@
 # SOFTWARE.
 
 function r2ai () {
-    ros2 action info `ros2 action list | fzf --height 30% --preview="ros2 action info {-1}"` $@
+    action_topic=`ros2 action list | fzf --height 30% --preview="ros2 action info {-1}"`
+    if [ -z "$action_topic" ]
+    then
+        return 1
+    fi
+    ros2 action info $action_topic $@
 }

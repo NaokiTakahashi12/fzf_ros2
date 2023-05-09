@@ -23,5 +23,10 @@
 # SOFTWARE.
 
 function r2cd () {
-    cd `colcon list | fzf --height 30% --preview="colcon info {1}" | awk '{print $2}'`
+    dir=`colcon list | fzf --height 30% --preview="colcon info {1}" | awk '{print $2}'`
+    if [ -z "$dir" ]
+    then
+        return 1
+    fi
+    cd $dir
 }

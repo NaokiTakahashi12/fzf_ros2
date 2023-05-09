@@ -23,5 +23,10 @@
 # SOFTWARE.
 
 function r2pd () {
-    ros2 param dump `ros2 node list | fzf --height 30% --preview="ros2 param dump {-1}"` $@
+    node_name=`ros2 node list | fzf --height 30% --preview="ros2 param dump {-1}"`
+    if [ -z "$node_name" ]
+    then
+        return 1
+    fi
+    ros2 param dump $node_name $@
 }

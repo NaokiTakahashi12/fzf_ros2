@@ -23,5 +23,10 @@
 # SOFTWARE.
 
 function r2ni () {
-    ros2 node info `ros2 node list | fzf --height 30% --preview="ros2 node info {-1}"` $@
+    node_name=`ros2 node list | fzf --height 30% --preview="ros2 node info {-1}"`
+    if [ -z "$node_name" ]
+    then
+        return 1
+    fi
+    ros2 node info $node_name $@
 }
