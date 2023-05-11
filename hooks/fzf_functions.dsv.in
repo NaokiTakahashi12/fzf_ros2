@@ -5,3 +5,4 @@ source;share/fzf_ros2/environment/fzf_with_ros2_param_functions.bash
 source;share/fzf_ros2/environment/fzf_with_ros2_service_functions.bash
 source;share/fzf_ros2/environment/fzf_with_ros2_topic_functions.bash
 source;share/fzf_ros2/environment/fzf_with_ros2_other_functions.bash
+source;share/fzf_ros2/environment/fzf_with_gz_functions.bash
